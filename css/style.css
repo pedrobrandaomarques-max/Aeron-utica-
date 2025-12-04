@@ -1,65 +1,81 @@
+/* -------------------------------------------------------------------
+   RESET BÁSICO – Remove margens/paddings padrão do navegador
+------------------------------------------------------------------- */
 *{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Inclui borda no cálculo total do tamanho */
 }
 
+/* -------------------------------------------------------------------
+   TOPO / NAVBAR / LOGO
+------------------------------------------------------------------- */
 .topo{
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Borda cinza suave */
+    margin-bottom: 15px;     /* Espaço abaixo do topo */
 }
 
 .logo{
-    width: 100%;
+    width: 100%;     /* Garante que ocupe a coluna toda */
     height: auto;
 }
 
 .logo img{
-    padding: 12px;
-    width: 25%;
+    padding: 12px;      /* Espaço interno do logo */
+    width: 25%;         /* Tamanho do logo no desktop */
 }
 
+/* Menu de navegação */
 .nav{
-    padding: 27px;
-    
+    padding: 27px;      /* Espaço em volta da navbar */
 }
 
+/* Cada item do menu */
 .nav-item{
-    padding-left: 25px;
-    font-size: 1vw;
+    padding-left: 25px;  /* Distância entre um item e outro */
+    font-size: 1vw;      /* Tamanho do texto relativo à tela (desktop) */
 }
 
+/* -------------------------------------------------------------------
+   BANNER / CAROUSEL
+------------------------------------------------------------------- */
 .banner{
-    height: auto;
+    height: auto; /* Deixa o banner proporcional */
 }
 
-.banner img{
+/* REMOVIDO porque quebrava o site:
+.banner img {
     width: 50px;
 }
+*/
+
+/* -------------------------------------------------------------------
+   CARDS DE DESTINOS
+------------------------------------------------------------------- */
 .card{
-    text-align: center;
-    margin: 4%;
-    border-radius: 5%;
-    transition: 1s ease;
+    text-align: center;   /* Centraliza texto */
+    margin: 4%;           /* Espaçamento entre cards */
+    border-radius: 5%;    /* Cantos arredondados */
+    transition: 1s ease;  /* Animação suave no hover */
 }
 
 .card:hover{
-    transform: scale(1.1);
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
 }
 
+/* Imagem dentro dos cards */
 .card img{
-    height: 400px;
+    height: 400px;    /* Altura fixa no desktop */
     border-radius: 5%;
 }
 
+/* Card modelo 2 */
 .card2{ 
     margin: 2%;
     border-radius: 5%;
     transition: 1s ease;
     border: 1px solid #ccc;
     width: 100%;
-    
-
 }
 
 .card2 img{
@@ -69,13 +85,14 @@
 }
 
 .card2 p{
-    text-align: left;
+    text-align: left; /* Texto alinhado à esquerda */
 }
 
 .card2:hover{ 
     transform: scale(1.1);
 }
 
+/* Outro card (se for usado em outras páginas) */
 .card66{
     height: 100px;
 }
@@ -87,14 +104,65 @@
     padding: 12px;
 }
 
+/* -------------------------------------------------------------------
+   RODAPÉ
+------------------------------------------------------------------- */
 .footer{
-    text-align: center;
-    padding: 25px;
-    background-color:#ccc;
+    text-align: center;  /* Centraliza texto */
+    padding: 25px;        /* Espaço interno */
+    background-color:#ccc; /* Fundo cinza */
     color: black;
-    font-size: 1.2vw;
+    font-size: 1.2vw;     /* Tamanho do texto no desktop */
 }
 
 .footer span{
-    color: blue;
+    color: blue;          /* Cor do nome “Com Jesus” */
+}
+
+/* -------------------------------------------------------------------
+   🔥 MEDIA QUERIES PARA MOBILE (TELAS ATÉ 768px)
+   Tudo daqui pra baixo só funciona no celular/tablet.
+------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+    /* LOGO MAIOR NO CELULAR */
+    .logo img {
+        width: 60%;      /* Aumenta o logo */
+        padding: 5px;    /* Reduce padding */
+    }
+
+    /* NAV MAIS PRÓXIMA E LEGÍVEL */
+    .nav {
+        padding: 5px;              /* Diminui o espaço */
+        justify-content: center;   /* Centraliza nav */
+    }
+
+    .nav-item {
+        padding-left: 10px;       /* Menos espaço entre itens */
+        font-size: 14px;          /* Tamanho fixo para não sumir */
+    }
+
+    /* AJUSTAR CARDS NO CELULAR */
+    .card img {
+        height: auto;      /* Remove altura fixa */
+        width: 100%;       /* Imagem ocupa a largura total */
+    }
+
+    .card {
+        margin: 15px 0;    /* Cards mais próximos */
+    }
+
+    /* FOOTER ADEQUADO PARA MOBILE */
+    .footer {
+        font-size: 14px;   /* Texto menor e legível */
+    }
+
+    /* TEXTO DO CAROUSEL */
+    .carousel-caption h4 {
+        font-size: 20px;   /* Menor para o celular */
+    }
+
+    .carousel-caption p {
+        font-size: 14px;
+    }
 }
